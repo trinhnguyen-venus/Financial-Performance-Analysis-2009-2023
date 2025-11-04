@@ -1,0 +1,215 @@
+🧭 TỔNG QUAN DỰ ÁN
+
+Tên Financial Performance Analysis of Major Companies (2009–2023)
+Mục tiêu Phân tích hiệu quả tài chính của các tập đoàn lớn trong giai đoạn 15 năm để hiểu xu hướng lợi nhuận, cơ cấu tài chính, và khả năng sinh lời — đồng thời kể một câu chuyện tài chính có ý nghĩa (financial storytelling).
+
+🧩 GIAI ĐOẠN 1. PROJECT PLANNING & STRUCTURE SETUP
+
+Mục tiêu xác định mục tiêu, phạm vi, cấu trúc, và chuẩn bị môi trường làm việc.
+
+🔹 Bước 1 Xác định mục tiêu & câu hỏi nghiên cứu (Business Questions)
+
+Trước khi code, cần định hướng phân tích tài chính sẽ trả lời điều gì.
+Ví dụ
+
+Ngành nào có hiệu quả sinh lời cao nhất (ROE, ROA)
+
+Đòn bẩy tài chính (DebtEquity) ảnh hưởng thế nào đến lợi nhuận ròng
+
+Có mối quan hệ nào giữa quy mô (Market Cap) và biên lợi nhuận
+
+Lạm phát (Inflation) ảnh hưởng gì đến hiệu quả tài chính
+
+Công ty nào duy trì hiệu suất ổn định nhất giai đoạn 2009–2023
+
+➡️ Đây chính là phần “storytelling direction” mà ta sẽ làm nổi bật trong phần EDA và báo cáo.
+
+🔹 Bước 2 Xác định cấu trúc thư mục dự án
+
+Trước khi tạo environment, ta cần có cấu trúc rõ ràng (đây là best practice)
+
+financial-analysis-project
+│
+├── data                   # Lưu file .csv (raw và cleaned)
+│   └── financial_statements.csv
+│
+├── notebooks              # Phân tích, biểu đồ, storytelling
+│   └── 01_data_cleaning.ipynb
+│   └── 02_eda_visualization.ipynb
+│   └── 03_financial_ratios.ipynb
+│   └── 04_storytelling_insights.ipynb
+│
+├── src                    # Code tái sử dụng (modules)
+│   ├── cleaning.py
+│   ├── ratios.py
+│   └── visualization.py
+│
+├── results                # Lưu biểu đồ hoặc kết quả xuất ra
+│   └── figures
+│
+├── README.md               # Giới thiệu và hướng dẫn project
+├── requirements.txt        # Danh sách thư viện
+└── .gitignore              # Loại bỏ file không cần push lên GitHub
+
+🔹 Bước 3 Chuẩn bị dữ liệu
+
+Mục tiêu kiểm tra, hiểu và xác minh dữ liệu đã sẵn sàng để phân tích.
+
+Xác định nguồn file (tải về hoặc link trực tiếp).
+
+Lưu bản gốc vào datafinancial_statements.csv.
+
+Mở nhanh trong Excel hoặc VS Code để xem định dạng, encoding, header.
+
+Kiểm tra số dòng, số cột, kiểu dữ liệu — tránh lỗi trước khi import vào pandas.
+
+🔹 Bước 4 Chuẩn bị môi trường Python (trước khi tạo)
+
+Ghi chú chưa tạo environment ngay — ở bước này ta chỉ xác định sẽ cần cài gì.
+
+Thư viện chính cần thiết
+
+Mục đích	Thư viện
+Xử lý dữ liệu	pandas, numpy
+Trực quan hóa	matplotlib, seaborn, plotly
+Hồi quy  phân tích thống kê	scikit-learn, statsmodels
+Xử lý hệ thống	os, pathlib
+Jupyter notebook	jupyter, notebook
+
+File cần chuẩn bị
+
+requirements.txt (sẽ tạo sau khi environment hoàn chỉnh)
+
+.gitignore (để bỏ qua __pycache__, .ipynb_checkpoints, dataraw nếu cần)
+
+📊 GIAI ĐOẠN 2. DATA UNDERSTANDING & CLEANING
+
+Mục tiêu Làm sạch dữ liệu, chuẩn hóa, xử lý giá trị thiếu, định dạng kiểu số.
+
+Các bước
+
+Import dữ liệu bằng pandas
+
+Kiểm tra thông tin tổng quan .info(), .describe()
+
+Phát hiện và xử lý
+
+Missing values (isna().sum())
+
+Outliers (boxplot, IQR)
+
+Định dạng số chuyển “B USD” → float
+
+Viết lại tên cột (lowercase, snake_case)
+
+Lưu bản đã làm sạch financial_statements_clean.csv
+
+📈 GIAI ĐOẠN 3. EXPLORATORY DATA ANALYSIS (EDA)
+
+Mục tiêu hiểu xu hướng và mối quan hệ giữa các chỉ tiêu tài chính.
+
+Gợi ý biểu đồ
+
+Distribution plot revenues, net_income, profit_margin
+
+Scatter plot revenues vs net_income, debt_equity vs ROE
+
+Heatmap tương quan giữa các chỉ tiêu
+
+Lineplot xu hướng ROE, ROA theo thời gian
+
+Barplot trung bình các chỉ tiêu theo category (ngành)
+
+💰 GIAI ĐOẠN 4. FINANCIAL RATIOS ANALYSIS
+
+Mục tiêu đánh giá hiệu quả hoạt động, khả năng thanh toán và cấu trúc vốn.
+
+Các bước
+
+Tạo thêm các biến
+
+gross_margin = gross_profit  revenues
+
+profit_margin = net_income  revenues
+
+debt_to_equity = debt_equity_ratio
+
+return_on_capital = net_income  (shareholder_equity + total_liabilities)
+
+revenue_per_employee = revenues  number_of_employees
+
+Tính trung bình, độ lệch chuẩn theo ngành (groupby)
+
+Xác định
+
+Ngành có hiệu suất tốt nhất (ROE, ROA cao)
+
+Ngành có rủi ro cao (DebtEquity lớn)
+
+Tạo bảng tổng hợp (pivot_table)
+
+🧠 GIAI ĐOẠN 5. STORYTELLING & INSIGHTS
+
+Mục tiêu kết nối kết quả phân tích với câu chuyện tài chính thực tế.
+
+Cách triển khai storytelling
+
+Xây dựng câu chuyện trung tâm
+
+“Doanh nghiệp quy mô lớn có thực sự sinh lời tốt hơn không”
+“Lạm phát ảnh hưởng ra sao đến lợi nhuận ngành công nghệ”
+
+Kết hợp biểu đồ + bình luận insight
+
+Viết diễn giải ngắn sau mỗi biểu đồ (Jupyter Notebook hoặc slide).
+
+Tạo narrative line
+
+Mở đầu bối cảnh → diễn biến → kết luận → gợi ý hành động.
+
+🧮 GIAI ĐOẠN 6. MODELING (TUỲ CHỌN)
+
+Mục tiêu mô phỏng hoặc dự báo lợi nhuận dựa trên các biến tài chính.
+
+Ví dụ
+
+Hồi quy tuyến tính net_income ~ revenues + debt_equity_ratio + ebitda
+
+Đánh giá hệ số hồi quy → yếu tố nào ảnh hưởng mạnh nhất đến lợi nhuận.
+
+🧾 GIAI ĐOẠN 7. REPORTING & GITHUB
+
+Mục tiêu hoàn thiện và công bố dự án như một portfolio.
+
+Bước thực hiện
+
+Viết README.md mô tả dự án
+
+Mục tiêu
+
+Dataset
+
+Kết quả nổi bật
+
+Cấu trúc project
+
+Cách chạy mã
+
+Xuất hình biểu đồ sang resultsfigures
+
+Push toàn bộ project lên GitHub
+
+git init
+git add .
+git commit -m Initial commit - Financial Analysis Project
+git branch -M main
+git remote add origin httpsgithub.comuserrepo.git
+git push -u origin main
+
+✅ Sau bước này bạn sẽ
+
+Có toàn bộ roadmap dự án rõ ràng.
+
+Biết cần tạo thư mục, file, và library nào.
+
+Sẵn sàng bắt đầu tạo environment trong VS Code.
