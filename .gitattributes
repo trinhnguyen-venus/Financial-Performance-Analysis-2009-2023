@@ -1,9 +1,7 @@
-# --- Text file normalization ---
+# Normalize line endings
 * text=auto
 
-# --- Language override (to ensure correct colors on GitHub) ---
-*.py linguist-language=Python
+# Ensure GitHub recognizes .ipynb as Jupyter Notebook
 *.ipynb linguist-language=Jupyter Notebook
-*.csv linguist-language=CSV
-*.xlsx linguist-language=Excel
+
 

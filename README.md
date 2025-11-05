@@ -11,27 +11,26 @@ The analysis combines data cleaning, financial ratio computation, and explorator
 
 ## 2. Tools Used
 
-| Tool                            | Purpose                            |
-| ------------------------------- | ---------------------------------- |
-| **Python (pandas)**             | Data manipulation and calculation  |
-| **Matplotlib, Seaborn**         | Visualization and storytelling     |
-| **Excel (initial data review)** | Basic review and variable creation |
+**Python (pandas):** Data manipulation and calculation
+**Python (Matplotlib, Seaborn):** Visualization and storytelling
+**Excel (initial data review):** Basic review and variable creation
+
 
 ## 3. Dataset Overview
 **Existing Variables**
 | Variable                                                      | Description                                           |
 | ------------------------------------------------------------- | ----------------------------------------------------- |
-| **year**                                                      | Financial year                                        |
-| **market_cap(in_b_usd)**                                      | Company market capitalization (Billion USD)           |
-| **revenue**                                                   | Annual revenue (Billion USD)                          |
-| **gross_profit**                                              | Gross profit after production costs                   |
-| **net_income**                                                | Net profit after taxes                                |
-| **roe, roa**                                                  | Return on Equity & Assets – key profitability metrics |
-| **debt/equity_ratio**                                         | Capital structure measure of leverage                 |
-| **cash_flow_from_operating, investing, financial_activities** | Cash flow components                                  |
-| **number_of_employees**                                       | Workforce size                                        |
-| **category**                                                  | Industry classification                               |
-| **inflation_rate(in_us)**                                     | Macro factor controlling environment                  |
+| **Year**                                                      | Financial year                                        |
+| **Market_Cap(in_B_USD)**                                      | Company market capitalization (Billion USD)           |
+| **Revenue**                                                   | Annual revenue (Billion USD)                          |
+| **Gross_Profit**                                              | Gross profit after production costs                   |
+| **Net_Income**                                                | Net profit after taxes                                |
+| **ROE, ROA**                                                  | Return on Equity & Assets – key profitability metrics |
+| **Debt/Equity_Ratio**                                         | Capital structure measure of leverage                 |
+| **Cash_Flow_from_Operating, Investing, Financial_Activities** | Cash flow components                                  |
+| **Number_of_Employees**                                       | Workforce size                                        |
+| **Category**                                                  | Industry classification                               |
+| **Inflation_Rate(in_US)**                                     | Macro factor controlling environment                  |
 
 **Newly Created Variables**
 | New Metric               | Formula                                                 | Meaning                               |
@@ -54,14 +53,13 @@ However, industries like IT and Logistics exhibit disproportionately high market
 ### 4.2 Market Cap & ROE Relationship
 ![Market Cap & ROE Relationship](Images/Market_Cap_&_ROE_Relationship.png)
 - Companies with higher Debt-to-Equity tend to exhibit volatile ROE.
-- Moderate leverage supports return growth, but excessive debt increases financial risk.
-- The linear trend confirms leverage efficiency up to a threshold.
+- Leverage helps increase returns to a certain extent, but too much debt increases financial risk.
+- The trend line shows that moderate leverage improves capital efficiency.
 
 ### 4.3 Distribution of Key Financial Metrics
 ![Distribution of key metrics](Images/Distribution_of_Key_Financial_Metrics.png)
-Most firms cluster in lower revenue and profit ranges, indicating a right-skewed financial distribution — few giants dominate global markets.
-
-ROE and ROA show wide variance, confirming different efficiency levels across industries.
+- Most companies operate in the lower range of revenue and profit, while a few large players dominate the market.
+- ROE and ROA vary widely, showing different levels of operational efficiency across industries.
 
 ### 4.4 Profitability Trends Over Time
 ![ROA & ROE trend](Images/Profitability_Trend.png)
@@ -81,18 +79,19 @@ ROE and ROA show wide variance, confirming different efficiency levels across in
 | **BANK**    | 5.0%   | 0.24% | 6.29        | Highly leveraged — structurally risky.              |
 
 - IT and FinTech sectors lead in profitability.
-- Food and Manufacturing face negative ROE, signaling structural inefficiency or over-leverage.
-- Banking sectors show systemic risk exposure due to extreme debt ratios.
+- Food and Manufacturing sectors face negative ROE due to high liabilities.
+- Banking sectors show strong equity returns but carries high leverage risk.
 
 ## 5. Key Takeaways
-1. Size ≠ Profitability: Large firms tend to have higher revenue and market cap, but profitability depends on capital structure efficiency, not size alone.
-2. Leverage Balance is Critical: Moderate leverage enhances ROE, but excessive debt leads to volatility — especially visible in banking and food sectors.
-3. Tech-Led Growth: IT and FinTech dominate due to scalable models, high margins, and investor optimism.
-4. Operational Productivity: Revenue per employee shows that tech companies achieve high output per workforce unit, reinforcing digital economy efficiency.
+1. Size doesn’t equal profitability: Large firms tend to have higher revenue and market cap, but profitability depends on capital structure efficiency, not size alone.
+2. Leverage Balance is essential: Moderate debt can improve ROE, while excessive leverage leads to instability.
+3. Tech-driven growth: IT and FinTech dominate due to scalable models, high margins, and investor optimism.
+4. Productivity advantage: Tech firms generate higher revenue per employee, proving superior workforce efficiency.
 
 ## Author
 
 Trinh Nguyen
 📧 Contact: ng.trinh3023@gmail.com
 📍 GitHub: [https://trinhnguyen-venus.github.io/](https://trinhnguyen-venus.github.io/)
+
 📍 Project for skill development in financial analytics.
