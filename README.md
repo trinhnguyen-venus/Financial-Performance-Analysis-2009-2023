@@ -116,4 +116,5 @@ Workforce efficiency is a stronger long-term driver than balance sheet expansion
 Trinh Nguyen
 
 📧 Contact: ng.trinh3023@gmail.com
+
 📍 GitHub: [https://trinhnguyen-venus.github.io/](https://trinhnguyen-venus.github.io/)
