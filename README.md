@@ -1,97 +1,119 @@
-# 📊 Financial Performance Analysis of Global Companies (EDA & Storytelling)
----
-## 1. Project Overview
-This project explores the financial performance of global companies through data-driven storytelling.
-Using key financial indicators such as Revenue, Market Capitalization, Profitability Ratios (ROE, ROA), and Capital Structure (Debt/Equity), the analysis aims to answer:
+# Financial Performance Analysis of a Sample Global Company Portfolio
 
-💡 “Do large companies truly generate better returns?”
-💡 “How does industry type and inflation affect corporate profitability?”
+(Business-focused Financial Analysis & Decision Support)
 
-The analysis combines data cleaning, financial ratio computation, and exploratory data visualization to uncover insights about firm efficiency and risk.
+## 1. Business Context
+This project simulates a financial analysis assignment for a sample portfolio of global companies across multiple industries.
 
-## 2. Tools Used
+**Business problem:** Senior management wants to understand whether company size truly leads to better financial performance, and how capital structure, industry characteristics, and macroeconomic factors (inflation) affect profitability and risk.
 
-**Python (pandas):** Data manipulation and calculation
-**Python (Matplotlib, Seaborn):** Visualization and storytelling
-**Excel (initial data review):** Basic review and variable creation
+The analysis is designed as a decision-support report, similar to what a Financial / Business Analyst would deliver to executives or investment stakeholders.
 
+## 2. Key Business Questions
 
-## 3. Dataset Overview
-**Existing Variables**
-| Variable                                                      | Description                                           |
-| ------------------------------------------------------------- | ----------------------------------------------------- |
-| **Year**                                                      | Financial year                                        |
-| **Market_Cap(in_B_USD)**                                      | Company market capitalization (Billion USD)           |
-| **Revenue**                                                   | Annual revenue (Billion USD)                          |
-| **Gross_Profit**                                              | Gross profit after production costs                   |
-| **Net_Income**                                                | Net profit after taxes                                |
-| **ROE, ROA**                                                  | Return on Equity & Assets – key profitability metrics |
-| **Debt/Equity_Ratio**                                         | Capital structure measure of leverage                 |
-| **Cash_Flow_from_Operating, Investing, Financial_Activities** | Cash flow components                                  |
-| **Number_of_Employees**                                       | Workforce size                                        |
-| **Category**                                                  | Industry classification                               |
-| **Inflation_Rate(in_US)**                                     | Macro factor controlling environment                  |
-
-**Newly Created Variables**
-| New Metric               | Formula                                                 | Meaning                               |
-| ------------------------ | ------------------------------------------------------- | ------------------------------------- |
-| **Gross Margin**         | `gross_profit / revenue`                                | Efficiency of production & sales      |
-| **Profit Margin**        | `net_income / revenue`                                  | Net profit per revenue unit           |
-| **Return on Capital**    | `net_income / (shareholder_equity + total_liabilities)` | Capital efficiency                    |
-| **Revenue per Employee** | `revenue / number_of_employees`                         | Workforce productivity                |
-| **Debt to Equity**       | *Reassigned from `debt/equity_ratio`*                   | Leverage ratio for stability analysis |
+- Do larger companies generate higher returns, or just higher revenue?
+- Which industries deliver sustainable profitability versus leveraged returns?
+- How does capital structure (Debt/Equity) impact ROE volatility?
+- Are productivity gains (revenue per employee) concentrated in specific sectors?
+- How resilient are profitability metrics under inflationary pressure?
 
 
-## 4. Exploratory Storytelling
-### 4.1 Relationship between Revenue and Market Cap
+## 3. Key Findings & Insights
+### 3.1 Company size ≠ profitability
 
 ![Revenue vs Market Cap](Images/Revenue_vs_marketcap.png)
-A clear positive correlation shows that higher revenue often translates into higher market capitalization.
+- Revenue and Market Capitalization are positively correlated.
+- However, higher revenue does not guarantee stronger ROE or ROA.
+- IT and Logistics firms command high market caps relative to revenue, indicating growth expectations rather than current profitability.
 
-However, industries like IT and Logistics exhibit disproportionately high market caps compared to revenue, reflecting investor confidence and growth potential rather than current income.
+**Insight:**
 
-### 4.2 Market Cap & ROE Relationship
+Investors reward scalability and future growth more than current income alone.
+
+### 3.2 Leverage amplifies returns — and risk
+
 ![Market Cap & ROE Relationship](Images/Market_Cap_&_ROE_Relationship.png)
-- Companies with higher Debt-to-Equity tend to exhibit volatile ROE.
-- Leverage helps increase returns to a certain extent, but too much debt increases financial risk.
-- The trend line shows that moderate leverage improves capital efficiency.
 
-### 4.3 Distribution of Key Financial Metrics
+- Firms with moderate leverage achieve higher ROE.
+- Excessive Debt/Equity leads to volatile and unstable equity returns.
+- Banking firms exhibit structurally high leverage, increasing systemic risk.
+
+**Insight:**
+
+ROE improvement driven purely by leverage is fragile and highly sensitive to market shocks.
+
+### 3.3 Profitability is highly skewed across firms
+
 ![Distribution of key metrics](Images/Distribution_of_Key_Financial_Metrics.png)
-- Most companies operate in the lower range of revenue and profit, while a few large players dominate the market.
-- ROE and ROA vary widely, showing different levels of operational efficiency across industries.
 
-### 4.4 Profitability Trends Over Time
+- A small group of firms dominates revenue and profit.
+- ROE and ROA distributions are wide, reflecting uneven operational efficiency.
+- Most companies operate within a narrow margin range, limiting downside buffers.
+
+**Insight:**
+
+Industry structure matters more than firm count — profitability is not evenly distributed.
+
+### 3.4 Industry-level performance differences
+
+| Industry    | ROE    | ROA   | Debt/Equity | Business Interpretation                 |
+| ----------- | ------ | ----- | ----------- | --------------------------------------- |
+| IT          | 36.8%  | 15.7% | 0.42        | High-margin, scalable, capital-light    |
+| FinTech     | 12.7%  | 4.3%  | 0.22        | Growth-oriented, conservative leverage  |
+| Electronics | 19.5%  | 12.2% | 0.26        | Balanced operational efficiency         |
+| Food        | -42.2% | 14.3% | -2.83       | High liabilities distort equity returns |
+| Finance     | 16.7%  | -7.7% | -0.30       | Profit driven by financial leverage     |
+| Banking     | 5.0%   | 0.24% | 6.29        | Highly leveraged, structurally risky    |
+
+**Insight:**
+
+Tech sectors outperform due to scalability and productivity, not asset intensity.
+
+### 3.5 Productivity drives long-term advantage
+
+- IT and FinTech firms generate significantly higher revenue per employee.
+- Asset-heavy industries require more capital to scale returns.
+- Stable ROA trends indicate operational consistency, even under inflation.
+
 ![ROA & ROE trend](Images/Profitability_Trend.png)
-- ROE fluctuates more than ROA, showing greater sensitivity to equity and market shocks.
-- Post-2016 recovery aligns with a global rebound in tech profitability.
-- Stability in ROA suggests operational consistency even under inflationary pressure.
 
-### 4.5 Industry Comparison of Financial Health
+**Insight:**
 
-| Industry    | ROE    | ROA   | Debt/Equity | Interpretation                                      |
-| ----------- | ------ | ----- | ----------- | --------------------------------------------------- |
-| **IT**      | 36.8%  | 15.7% | 0.42        | Outstanding profitability with manageable leverage. |
-| **FinTech** | 12.7%  | 4.3%  | 0.22        | Strong emerging sector with low debt reliance.      |
-| **ELEC**    | 19.5%  | 12.2% | 0.26        | Balanced returns and stable capital structure.      |
-| **FOOD**    | -42.2% | 14.3% | -2.83       | Negative ROE due to heavy liabilities.              |
-| **Finance** | 16.7%  | -7.7% | -0.30       | High equity return but unstable asset efficiency.   |
-| **BANK**    | 5.0%   | 0.24% | 6.29        | Highly leveraged — structurally risky.              |
+Workforce efficiency is a stronger long-term driver than balance sheet expansion.
 
-- IT and FinTech sectors lead in profitability.
-- Food and Manufacturing sectors face negative ROE due to high liabilities.
-- Banking sectors show strong equity returns but carries high leverage risk.
 
-## 5. Key Takeaways
-1. Size doesn’t equal profitability: Large firms tend to have higher revenue and market cap, but profitability depends on capital structure efficiency, not size alone.
-2. Leverage Balance is essential: Moderate debt can improve ROE, while excessive leverage leads to instability.
-3. Tech-driven growth: IT and FinTech dominate due to scalable models, high margins, and investor optimism.
-4. Productivity advantage: Tech firms generate higher revenue per employee, proving superior workforce efficiency.
+## 4. Business Recommendations
+1. Avoid evaluating firms by size alone
+    → Prioritize ROA, capital efficiency, and revenue per employee.
+
+2. Target industries with scalable operating models
+    → IT and FinTech offer superior risk-adjusted returns.
+
+3. Monitor leverage-driven ROE carefully
+    → High ROE without operational efficiency signals fragility.
+
+4. Incorporate productivity metrics into performance reviews
+    → Revenue per employee highlights sustainable competitive advantage.
+
+    
+## 5. Why This Analytical Approach
+
+- Financial ratios were selected to separate operational performance from financial engineering.
+- Industry segmentation reveals structural differences, not short-term noise.
+- Trend analysis highlights resilience under macroeconomic pressure.
+- This approach mirrors how analysts support investment decisions, capital allocation, and strategic planning.
+
+## 6. Skills & Tools (Brief)
+
+- Financial ratio analysis & business interpretation
+- Exploratory analysis & executive-level storytelling
+- Python (pandas, matplotlib) for analysis and visualization
+
+(Technical implementation details are available in project files.)
 
 ## Author
 
 Trinh Nguyen
+
 📧 Contact: ng.trinh3023@gmail.com
 📍 GitHub: [https://trinhnguyen-venus.github.io/](https://trinhnguyen-venus.github.io/)
-
-📍 Project for skill development in financial analytics.
