@@ -1,7 +1,5 @@
 # Financial Performance Analysis of a Sample Global Company Portfolio
 
-(Business-focused Financial Analysis & Decision Support)
-
 ## 1. Business Context
 This project simulates a financial analysis assignment for a sample portfolio of global companies across multiple industries.
 
@@ -96,14 +94,14 @@ Workforce efficiency is a stronger long-term driver than balance sheet expansion
     → Revenue per employee highlights sustainable competitive advantage.
 
     
-## 5. Why This Analytical Approach
+## 5. Analytical Approach
 
 - Financial ratios were selected to separate operational performance from financial engineering.
 - Industry segmentation reveals structural differences, not short-term noise.
 - Trend analysis highlights resilience under macroeconomic pressure.
 - This approach mirrors how analysts support investment decisions, capital allocation, and strategic planning.
 
-## 6. Skills & Tools (Brief)
+## 6. Skills & Tools
 
 - Financial ratio analysis & business interpretation
 - Exploratory analysis & executive-level storytelling
